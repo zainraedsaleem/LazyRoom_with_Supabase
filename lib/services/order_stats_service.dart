@@ -6,7 +6,6 @@ class OrderStats {
   const OrderStats({this.completed = 0, this.received = 0});
 }
 
-/// عدد الطلبات المكتملة (الزبون) / المستقبلة والمكتملة (المورد).
 class OrderStatsService {
   static final SupabaseClient _supabase = Supabase.instance.client;
 

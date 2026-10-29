@@ -1,8 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:takroom/models/account_model.dart';
 
-/// خدمات الأدمن عبر Supabase (RPC + Edge Function).
-/// الصلاحيات تُفحص في قاعدة البيانات (is_admin) وليس في التطبيق.
 class AdminService {
   static final SupabaseClient _supabase = Supabase.instance.client;
 
@@ -31,7 +29,7 @@ class AdminService {
     }
   }
 
-  // Create Account (Edge Function لأن إنشاء مستخدم Auth يحتاج service_role)
+  // Create Account
   static Future<String> createAccount({
     required Map<String, dynamic> body,
   }) async {

@@ -3,7 +3,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class RefreshBalanceService {
   final SupabaseClient _client = Supabase.instance.client;
 
-  /// Stream لصف المستخدم الحالي (الرصيد + الحظر) — يتحدث فوراً عند أي تغيير.
   Stream<Map<String, dynamic>> watchOwnUserRow() {
     final uid = _client.auth.currentUser!.id;
     return _client
@@ -14,12 +13,9 @@ class RefreshBalanceService {
         .map((rows) => rows.first);
   }
 
-  /// Stream للرصيد فقط.
-  Stream<double> watchBalance() => watchOwnUserRow().map(
-    (row) => (row['balance'] as num).toDouble(),
-  );
+  Stream<double> watchBalance() =>
+      watchOwnUserRow().map((row) => (row['balance'] as num).toDouble());
 
-  /// جلب لمرة واحدة (احتياطي).
   Future<double> refreshBalance() async {
     final userId = _client.auth.currentUser!.id;
     final data = await _client

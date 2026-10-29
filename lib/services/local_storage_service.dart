@@ -10,8 +10,6 @@ class AppSettings {
   });
 }
 
-/// تخزين إعدادات الجهاز (الصور + الوضع الليلي) في SharedPreferences.
-/// تبقى محفوظة بعد تسجيل الخروج.
 class LocalStorageService {
   static const _kPhotos = 'products_with_photos';
   static const _kTheme = 'theme_mode'; // system | light | dark

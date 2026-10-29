@@ -8,7 +8,7 @@ import 'package:takroom/models/product_model.dart';
 class ProductService {
   SupabaseClient _supabase = Supabase.instance.client;
 
-  //getProducts (RPC: يعيد اسم المورد دون كشف جدول users)
+  //getProducts
   Future<List<Product>> getProducts() async {
     final response = await _supabase.rpc('get_products');
     return (response as List)

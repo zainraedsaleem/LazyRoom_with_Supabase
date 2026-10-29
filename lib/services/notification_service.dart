@@ -2,11 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// إشعارات الطلبات:
-///  - المورد: وصول طلب جديد.
-///  - الزبون: قبول أو رفض طلبه.
-/// الصفوف تُنشأ بواسطة triggers في قاعدة البيانات، والتطبيق يستمع لها Realtime
-/// ويعرضها كإشعار نظام.
 class NotificationService {
   NotificationService._();
   static final NotificationService instance = NotificationService._();
@@ -63,7 +58,6 @@ class NotificationService {
     }
   }
 
-  /// آخر 20 إشعاراً للمستخدم الحالي (Stream).
   Stream<List<Map<String, dynamic>>> watchMyNotifications() {
     final uid = _client.auth.currentUser!.id;
     return _client

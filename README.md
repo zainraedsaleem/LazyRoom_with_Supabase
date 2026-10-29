@@ -77,6 +77,22 @@ The app is built with a clean, role-based architecture, so each type of user get
 
 ---
 
+## 📥 Download
+
+Download the latest Android APK from the **[v1.0.0 Release](https://github.com/zainraedsaleem/LazyRoom_with_Supabase/releases/tag/v1.0.0)**.
+
+Several builds are available, one per processor architecture. Pick the one that matches your phone:
+
+| APK                  | Recommended for                                              |
+|-----------------------|---------------------------------------------------------------|
+| `arm64-v8a`           | Most modern Android phones (64-bit) — **choose this if unsure** |
+| `armeabi-v7a`         | Older 32-bit Android phones                                   |
+| `x86_64`              | Emulators and some Intel-based devices                        |
+
+> 💡 You can check your device's architecture in your phone's settings or with an app such as *CPU-Z*. If you're not sure, try `arm64-v8a` first.
+
+---
+
 ## ⚙️ Getting Started
 
 ### Prerequisites
@@ -87,8 +103,8 @@ The app is built with a clean, role-based architecture, so each type of user get
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/lazyroom.git
-   cd lazyroom
+   git clone https://github.com/zainraedsaleem/LazyRoom_with_Supabase
+   cd LazyRoom_with_Supabase
    ```
 
 2. **Install dependencies**

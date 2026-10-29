@@ -23,7 +23,6 @@ class SupplierOrderService {
 
         final customer = data['customer'];
 
-        // إنشاء الشكل الذي يتوقعه SupplierOrderModel
         data['customer_name'] = customer['name'];
 
         data['delivery_address'] = {

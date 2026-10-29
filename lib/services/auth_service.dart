@@ -33,7 +33,7 @@ class AuthService {
     }
   }
 
-  //logout (يُنهي الجلسة فعلياً، وليس فقط مسح الواجهة)
+  //logout
   Future<void> logout() async {
     try {
       await _supabase.auth.signOut();

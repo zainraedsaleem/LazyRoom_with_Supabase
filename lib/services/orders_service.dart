@@ -12,7 +12,6 @@ class OrderService {
     return e.toString().replaceFirst('Exception: ', '');
   }
 
-  //createOrder (السعر والمورد والمخزون والرصيد تُحسب وتُفحص في السيرفر)
   Future<String> createOrder({required List<OrderRequestItem> items}) async {
     try {
       await _supabase.rpc(
@@ -38,7 +37,8 @@ class OrderService {
     try {
       final orderitems = items
           .map(
-            (i) => OrderRequestItem(productId: i.product.id, quantity: i.quantity),
+            (i) =>
+                OrderRequestItem(productId: i.product.id, quantity: i.quantity),
           )
           .toList();
       return await OrderService().createOrder(items: orderitems);
@@ -48,7 +48,7 @@ class OrderService {
     }
   }
 
-  //cancelOrder (pending فقط، وللزبون صاحب الطلب فقط)
+  //cancelOrder
   Future<void> cancelOrder(int orderId) async {
     try {
       await _supabase.rpc('cancel_order', params: {'p_order_id': orderId});
@@ -67,7 +67,6 @@ class OrderService {
     }
   }
 
-  //أي تغيير على طلبات الزبون (Stream)
   Stream<List<Map<String, dynamic>>> watchCustomerOrderEvents() {
     final uid = _supabase.auth.currentUser!.id;
     return _supabase
@@ -81,9 +80,7 @@ class OrderService {
     try {
       final response = await _supabase.rpc('get_customer_orders');
       return (response as List)
-          .map(
-            (e) => CustomerOrderModel.fromJson(Map<String, dynamic>.from(e)),
-          )
+          .map((e) => CustomerOrderModel.fromJson(Map<String, dynamic>.from(e)))
           .toList();
     } catch (e) {
       print('Get customer orders error: $e');
